@@ -9,7 +9,10 @@ test.describe('homepage', () => {
         await page.goto('https://www.npu.cz');
         const searchBox = page.getByRole('textbox', { name: 'Search' });
         await searchBox.fill('hrad');
-        await searchBox.click();
+        await searchBox.press('Enter');
+        await expect(page.getByRole('heading', { name: 'Search results' })).toBeVisible();
+    const resultHeading = page.getByRole('heading', { name: 'hrad', exact: true });
+    await expect(resultHeading).toBeVisible();
 
-    });
+});
 });
