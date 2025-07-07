@@ -1,4 +1,5 @@
 import{test, expect} from '@playwright/test';
+import { describe } from 'node:test';
 
 test.describe('homepage', () => {
     test('title', async ({ page }) => {
@@ -70,3 +71,37 @@ await expect(page.getByRole('heading', { level: 1, name: 'My account' })).toBeVi
 })
 
 })
+
+test.describe('main_navigation ', () => {
+    test('hrady_zamky', async ({ page, context }) => {
+        await page.goto('https://www.npu.cz/cs');
+        const navLink = page.locator('ul.main-navigation__list--highlight li.main-navigation__list-item > a[href$="/hrady-a-zamky"]');
+        await navLink.click();
+        await expect(page).toHaveURL(/hrady-a-zamky/);
+    })
+test('hrady_zamky', async ({ page }) => {
+    await page.goto('https://www.npu.cz/cs');
+    const navLink = page.locator('ul.main-navigation__list--highlight li.main-navigation__list-item > a[href$="/hrady-a-zamky"]');
+    await expect(navLink).toHaveCount(1); // Ověří, že odkaz existuje
+    const href = await navLink.getAttribute('href');
+    if (href) {
+        await page.goto(href.startsWith('http') ? href : `https://www.npu.cz${href}`);
+        await expect(page).toHaveURL(/hrady-a-zamky/);
+    } else {
+        throw new Error('Navigation link not found');
+    }
+})
+test('hrady_zamky', async ({ page }) => {
+    await page.goto('https://www.npu.cz/cs');
+    const navLink = page.locator('ul.main-navigation__list--highlight li.main-navigation__list-item > a[href$="/hrady-a-zamky"]');
+    await expect(navLink).toHaveCount(1); // Ověří, že odkaz existuje
+    const href = await navLink.getAttribute('href');
+    if (href) {
+        await page.goto(href.startsWith('http') ? href : `https://www.npu.cz${href}`);
+        await expect(page).toHaveURL(/hrady-a-zamky/);
+    } else {
+        throw new Error('Navigation link not found');
+    }
+});
+
+});
