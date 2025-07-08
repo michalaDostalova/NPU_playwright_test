@@ -98,12 +98,23 @@ test("online_vstupenky", async({ page }) => {
     await submenuLink.click();
 })
 test("online_vstupenky2", async({ page }) => {
-    await page.goto('https://www.npu.cz/cs');const parentMenuItem = page.locator('ul.main-navigation__list--highlight li.main-navigation__list-item:has(a[href$="/seznam-pamatek"])');
-    await parentMenuItem.hover();
-    await page.waitForTimeout(300)
+    await page.goto('https://www.npu.cz/cs');
+   const parentMenuItem = page.locator('ul.main-navigation__list--highlight li.main-navigation__list-item:has(a[href$="/seznam-pamatek"])');
   
-   const submenuLink = parentMenuItem.locator('a.main-navigation__list-link[href$="/seznam-pamatek"]');
+    await page.waitForTimeout(500)
+    await parentMenuItem.hover();
+    await expect(parentMenuItem).toBeVisible();
+    await expect(parentMenuItem).toHaveCount(1);
+    await parentMenuItem.click();
+    
+    const submenuContainer = parentMenuItem.locator('ul.dropdown-list');
+await expect(submenuContainer).toBeVisible();
+  
+   //const submenuLink = parentMenuItem.locator('a.main-navigation__list-link[href$="/seznam-pamatek"]');
+const submenuLink = parentMenuItem.locator('a.main-navigation__list-link[href$="/seznam-pamatek"]');
+
     // Počkejte, až bude submenu odkaz viditelný
+    await page.waitForTimeout(600)
     await expect(submenuLink).toBeVisible();
     await expect(submenuLink).toHaveCount(1);
     // Klikněte na submenu odkaz
