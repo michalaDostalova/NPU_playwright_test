@@ -123,4 +123,12 @@ const submenuLink = parentMenuItem.locator('a.main-navigation__list-link[href$="
     await expect(page).toHaveURL(/seznam-pamatek/);
 });
 
+test('first_box', async( { page }) => {
+    await page.goto('https://www.npu.cz/cs');
+    await page.getByRole('link', { name: 'Navštivte nás' }).click();
+    await expect(page).toHaveURL(/hrady-a-zamky/);
+    await page.getByRole('link', { name: 'Seznam památek' }).click();
+    await expect(page).toHaveURL(/seznam-pamatek/);
+
 });
+})

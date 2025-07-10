@@ -1,0 +1,41 @@
+[33mcommit a80e2d556b05ac93d941008d42ddc9fc5750546b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmenu[m[33m)[m
+Author: Michala <michaladostalova@email.com>
+Date:   Tue Jul 8 13:41:17 2025 +0200
+
+    submenu fail
+
+[33mcommit 8496e0efb6fe63b7f12a1c22ea6fe5b77f665bfc[m[33m ([m[1;31morigin/page-header__top[m[33m, [m[1;31morigin/menu[m[33m, [m[1;32mpage-header__top[m[33m)[m
+Author: Michala <michaladostalova@email.com>
+Date:   Mon Jul 7 13:53:21 2025 +0200
+
+    menu2
+
+[33mcommit e33a9cadce6a2e6501eb0fe9794abfcc4deee8a2[m
+Author: Michala <michaladostalova@email.com>
+Date:   Mon Jul 7 13:52:07 2025 +0200
+
+    menu
+
+[33mcommit c4fa17552ca2ef26f1272164b6f8451271b32179[m
+Author: Michala <michaladostalova@email.com>
+Date:   Thu Jul 3 14:20:28 2025 +0200
+
+    delete example.spec.ts
+
+[33mcommit 7e5ace53bc62fc466ba7c2c82e54f00932282993[m
+Author: Michala <michaladostalova@email.com>
+Date:   Thu Jul 3 14:17:49 2025 +0200
+
+    socLink a prihlaseni
+
+[33mcommit 3b3b123b57b8063e31b9df28253a5fc1d15ff59d[m
+Author: Michala <michaladostalova@email.com>
+Date:   Thu Jun 26 20:29:01 2025 +0200
+
+    search
+
+[33mcommit 6a97462a22cf21019c4a2a98e2917e8e71abb87a[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Michala <michaladostalova@email.com>
+Date:   Thu Jun 26 18:54:37 2025 +0200
+
+    homepage
