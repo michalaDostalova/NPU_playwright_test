@@ -131,4 +131,33 @@ test('first_box', async( { page }) => {
     await expect(page).toHaveURL(/seznam-pamatek/);
 
 });
+
+
+
+test('second_box', async( { page }) => {
+    await page.goto('https://www.npu.cz/cs');
+    await page.getByRole('link', { name: 'Poznejte naši práci' }).click();
+    await expect(page).toHaveURL(/pamatkova-pece/);
+    await page.getByRole('button', { name: 'Všechny novinky' }).click();
+    await expect(page).toHaveURL(/novinky/);
+
+});
+test('3box', async( { page }) => {
+    await page.goto('https://www.npu.cz/cs');
+    await page.getByRole('link', { name: 'Kdo jsme' }).click();
+    await expect(page).toHaveURL(/o-nas/);
+    await page.getByRole('link', { name: 'Instituce' }).click();
+    await expect(page).toHaveURL(/instituce/);
+    await page.getByRole('link', { name: 'Vedení NPÚ' }).first().click();  
+    await expect(page).toHaveURL(/vedeni/);
+    const vedeni = page.getByRole('heading', { name: 'Ing. arch. Naděžda Goryczková' })
+    await expect(vedeni).toBeVisible();
+    await expect(vedeni).toHaveCount(1);
+
+
+});
+ 
+ 
+
+
 })
