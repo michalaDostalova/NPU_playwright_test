@@ -122,7 +122,7 @@ const submenuLink = parentMenuItem.locator('a.main-navigation__list-link[href$="
     // Ověřte, že jste na správné stránce
     await expect(page).toHaveURL(/seznam-pamatek/);
 });
-
+// základní 3 sekce NPU.cz(Hrady a zámk, pamatková péče, O nás)
 test('first_box', async( { page }) => {
     await page.goto('https://www.npu.cz/cs');
     await page.getByRole('link', { name: 'Navštivte nás' }).click();
