@@ -25,11 +25,22 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
+    /* Base URL — umožňuje psát page.goto('/cs') místo celé URL.
+     * Viz PLAYWRIGHT_TUTORIAL_USE.md pro podrobné vysvětlení. */
+    // baseURL: 'https://www.npu.cz',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+
+    /* Screenshot při selhání testu — soubory najdeš v test-results/ */
+    // screenshot: 'only-on-failure',
+
+    /* Video záznam — uchová se pouze pro selhávající testy */
+    // video: 'retain-on-failure',
+
+    /* Locale a časová zóna — ovlivňují Date, Intl a podobné API v prohlížeči */
+    // locale: 'cs-CZ',
+    // timezoneId: 'Europe/Prague',
   },
 
   /* Configure projects for major browsers */
