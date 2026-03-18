@@ -1,32 +1,27 @@
-import{test, expect} from '@playwright/test';
-import { networkInterfaces } from 'os';
-const URL = 'https://www.npu.cz/cs';
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../pages/HomePage';
+import { EventsPage } from '../pages/EventsPage';
 
-test.describe('NPU load test', () =>{
-    test('NPU nacteni homepage', async  ({page}) => {
-        const loadTest = Date.now()
-
-        await page.goto(URL);
-        await expect(page).toHaveTitle(/Národní památkový ústav/i)  
+test.describe('NPU load test', () => {
+    test('NPU nacteni homepage', async ({ page }) => {
+        const homePage = new HomePage(page);
+        const loadTest = Date.now();
+        await homePage.goto();
+        await expect(page).toHaveTitle(/Národní památkový ústav/i);
         await page.waitForLoadState('networkidle');
-        const LoadTime = Date.now() - loadTest
+        const loadTime = Date.now() - loadTest;
+        expect(loadTime).toBeLessThan(5000);
+        console.log(loadTime);
+    });
 
-        expect(LoadTime).toBeLessThan(5000); // Očekáváme, že načtení stránky bude trvat méně než 5 sekund
-        console.log(LoadTime)
-       
-})
-test('NPU nacteni akce', async  ({page}) => {
-        const loadTestAkce = Date.now()
-
-        await page.goto(`${URL}/akce`);
-        await  expect(page).toHaveTitle(/Akce/i)  
+    test('NPU nacteni akce', async ({ page }) => {
+        const eventsPage = new EventsPage(page);
+        const loadTestAkce = Date.now();
+        await eventsPage.gotoEvents();
+        await expect(page).toHaveTitle(/Akce/i);
         await page.waitForLoadState('networkidle');
-        const LoadTimeAkce = Date.now() - loadTestAkce
-
-        expect(LoadTimeAkce).toBeLessThan(5000); // Očekáváme, že načtení stránky bude trvat méně než 5 sekund
-        console.log(LoadTimeAkce)
-       
-
-
-})
-})
+        const loadTimeAkce = Date.now() - loadTestAkce;
+        expect(loadTimeAkce).toBeLessThan(5000);
+        console.log(loadTimeAkce);
+    });
+});
