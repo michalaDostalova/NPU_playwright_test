@@ -1,20 +1,18 @@
-//cesta z homepage do detailu produktu
-//vyhledavani podle jmena
-//filtr podle roku
-//filtr podle vydavatele
-//filtr podle dostupnosti
-//filtr podle  typ knihy
-//ražení podle ceny
-//do kose a smazat
+import { test } from '@playwright/test';
+import { EshopPage } from '../pages/EshopPage';
 
-
-import { test, expect } from '@playwright/test';
-import { describe } from 'node:test';
-const URL = 'https://eshop.npu.cz/cs/';
+// cesta z homepage do detailu produktu
+// vyhledavani podle jmena
+// filtr podle roku
+// filtr podle vydavatele
+// filtr podle dostupnosti
+// filtr podle typ knihy
+// razeni podle ceny
+// do kose a smazat
 
 test.describe('NPU Eshop Tests', () => {
-
-    test("workflow", async({page}) =>{
-
+    test('workflow', async ({ page }) => {
+        const eshopPage = new EshopPage(page);
+        await eshopPage.goto();
     });
 });
